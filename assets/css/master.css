@@ -1,0 +1,245 @@
+/*重置样式*/
+body,div,p,ul,ol,dl,dt,dd,li,form,input,table,th,td,img,h1,h2,h3,h4,h5,h6 { margin:0 ;padding:0; }
+body { background:#fdeb01 ; color:#000; font-size:12px; font-style:normal; font-family:"Microsoft Yahei";overflow: hidden;width: 100%;height: 100%;}
+em, b, i { font-style:normal;}
+img { border:none;}
+a { text-decoration:none; color:#000;}
+a:hover { text-decoration:underline; color:#f50;}
+li { list-style:none;}
+table { border-spacing:0; border-collapse:collapse;}
+/*the end*/
+
+/*公共*/
+.hide {display: none;}
+.flt {float:left;}
+.frt {float:right;}
+.clear { clear: both;}
+/*清除浮动*/
+.clearfix { *zoom: 1;} 
+.clearfix:before, .clearfix:after { display: table; line-height: 0; content: "";}
+.clearfix:after { clear: both;}
+
+
+/* loading开始 */
+.loading{position: absolute;top: 0;left: 0;width: 100%;height: 100%}
+.loading-wrap{position: absolute;top: 30%;left: 50%;margin-left:-50px;}
+.pic{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 40px;
+    background: url(../img/loading.png) 0 0/cover;
+}
+.loading-text{margin-top:20px;text-align: center;}
+/* loading结束 */
+
+/* home开始 */
+.home{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%
+}
+.home .title{
+    width: 305px;
+    height: 46px;
+    background: url(../img/title.png) no-repeat 0 0/contain;
+    margin: 23px auto 11px auto;
+}
+.home .subtitle{
+    width: 308px;
+    height: 61px;
+    background: url(../img/subtitle.png) no-repeat 0 0/contain;
+    margin: 0 auto 15px auto;
+}
+.home .entitle{
+    width: 321px;
+    height: 27px;
+    background: url(../img/entitle.png) no-repeat 0 0/contain;
+    margin: 0 auto;
+}
+@keyframes shake-warp{
+    0%{transform: rotateZ(0deg)}
+    10%{transform: rotateZ(5deg)}
+    20%{transform: rotateZ(-5deg)}
+    30%{transform: rotateZ(5deg)}
+    40%{transform: rotateZ(-5deg)}
+    100%{transform: rotateZ(0deg)}
+}
+.home .hand-warp{
+    width: 450px;
+    height: 420px;
+    background: url(../img/hand.png) no-repeat 0 0/contain;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    animation: shake-warp 1.5s infinite;
+    transform-origin: 40% 90%
+}
+.home .hand-warp .finger{
+    width: 148px;
+    height: 200px;
+    background: url(../img/hand_finger.png) no-repeat 0 0/contain;
+    position: absolute;
+    left: 98px;
+    bottom: 164px;
+}
+
+.home .home-shake-text{
+    width: 64px;
+    height: 38px;
+    background: url(../img/home_shake_text.png) no-repeat 0 0/contain;
+    position: absolute;
+    left: 64%;
+    bottom: 53%;
+}
+
+/* home结束 */
+/* result开始 */
+.result{
+    position: absolute;
+    top: 0; left: 0;bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.result .item{
+    display: none
+}
+.result .title{
+    width: 350px;
+    height: 40px;
+    margin: 20px auto 0px auto ;
+    background: url(../img/result_title.png) no-repeat 0 0/contain
+}
+.result .answer{
+    width: 350px;
+    height: 50px;
+    margin: 0 auto;
+}
+.result .item:nth-child(1) .answer{
+    background: url(../img/result_answer.png) no-repeat center center/contain
+}
+.result .item:nth-child(2) .answer{
+    background: url(../img/result_answer0.png) no-repeat center center/contain
+}
+.result .item:nth-child(3) .answer{
+    background: url(../img/result_answer1.png) no-repeat center center/contain
+}
+.result .item:nth-child(4) .answer{
+    background: url(../img/result_answer2.png) no-repeat center center/contain
+}
+.result .item:nth-child(5) .answer{
+    background: url(../img/result_answer3.png) no-repeat center center/contain
+}
+.result .item:nth-child(6) .answer{
+    background: url(../img/result_answer4.png) no-repeat center center/contain
+}
+.result .item:nth-child(7) .answer{
+    background: url(../img/result_answer6.png) no-repeat center center/contain
+}
+.result .avater-wrap{
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    background: url(../img/result_avatar_bg_1.png) no-repeat 0 0/contain;
+}
+.result .avater-wrap .wenhao{
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 176px;
+    left: 10px;
+    background: url(../img/result_avatar_bg_2.png) no-repeat 0 0/contain;
+}
+.result .avater-wrap .avater{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: absolute;
+    top: 176px;
+    left: 10px;
+}
+.result .item:nth-child(1) .avater-wrap .avater{
+    background: url(../img/share.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(2) .avater-wrap .avater{
+    background: url(../img/share0.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(3) .avater-wrap .avater{
+    background: url(../img/share1.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(4) .avater-wrap .avater{
+    background: url(../img/share2.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(5) .avater-wrap .avater{
+    background: url(../img/share3.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(6) .avater-wrap .avater{
+    background: url(../img/share4.jpg) no-repeat 0 0/contain;
+}
+.result .item:nth-child(7) .avater-wrap .avater{
+    background: url(../img/share6.jpg) no-repeat 0 0/contain;
+}
+@keyframes shake-hand{
+    0%{transform: rotateZ(0deg)}
+    10%{transform: rotateZ(20deg)}
+    20%{transform: rotateZ(-20deg)}
+    30%{transform: rotateZ(20deg)}
+    40%{transform: rotateZ(-20deg)}
+    100%{transform: rotateZ(0deg)}
+}
+
+.result .hand{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 388px;
+    left: 150px;
+    background: url(../img/shake_tips.png) no-repeat 0 0/contain;
+    animation: shake-hand 1.5s infinite;
+
+}
+.result .btns{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 528px;
+    left: 50%;
+    right: 50%;
+    background: url(../img/result_btn.png) no-repeat 0 0/contain;
+    transform: translate(-50%,-0%);
+}
+/* result结束 */
+/* share开始 */
+.share{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+.share-text{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url(../img/share.png) no-repeat center/cover;
+    width: 125px;
+    height: 110px;
+}
+
+/* share结束 */

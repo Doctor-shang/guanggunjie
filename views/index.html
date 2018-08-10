@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/css/master-48663ff0a7.css">
+    <title>光棍节</title>
+</head>
+<body>
+    <div class="loading">
+        <div class="loading-wrap">
+            <canvas id="mycanvas" width="100px" height="100px"></canvas>
+            <div class="pic"></div>
+            <div class="loading-text">0%</div>
+        </div>
+    </div>
+    <div class="home hide">
+        <div class="title hide"></div>
+        <div class="subtitle hide"></div>
+        <div class="entitle hide"></div>
+        <div class="hand-warp hide">
+            <div class="finger"></div>
+        </div>
+        <div class="home-shake-text hide"></div>
+    </div>
+    <div class="result hide">
+        <div class="item">111
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">222
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">333
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">444
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">555
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">666
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+        <div class="item">777
+            <div class="title"></div>
+            <div class="answer hide"></div>
+            <div class="avater-wrap">
+                <div class="wenhao"></div>
+                <div class="avater hide"></div>
+            </div>
+            <div class="hand"></div>
+            <div class="btns"></div>
+        </div>
+    </div>
+    <div class="share">
+        <div class="mask"></div>
+        <div class="share-text"></div>
+    </div>
+
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="../public/js/jquery-b98661369a.js"></script>
+    <!-- <script src="../public/js/main-818583d143.js"></script> -->
+    <script src="../public/js/velocity-db5c753c2b.js"></script>
+    <script src="../public/js/velocity-f55d22cc59.ui.js"></script>
+    <script src="../public/js/shake-9ce2066986.js"></script>
+<script>
+var canvas = document.getElementById('mycanvas'); //获取dom
+var context = canvas.getContext('2d'); //返回一个用于在画布上绘图的环境
+
+
+
+context.beginPath(); //起始一条路径，或重置当前路径
+context.moveTo(50,50); //把路径移动到画布中的指定点，不创建线条
+context.arc(50,50,50,0+1.5*Math.PI,2*Math.PI+1.5*Math.PI,false);
+//arc (圆心坐标x,圆心坐标y,半径,开始角度,结束角度,画的方向顺时针trueor逆时针false)
+context.closePath(); //创建从当前点回到起始点的路径
+context.fillStyle='#fff'; //属性设置或返回用于填充绘画的颜色、渐变或模式。
+context.fill(); //填充当前的路径      
+
+function drawCircle(pi) {
+    context.beginPath(); //起始一条路径，或重置当前路径
+    context.moveTo(50,50); //把路径移动到画布中的指定点，不创建线条
+    context.arc(50,50,50, 0+1.5*Math.PI, 1.5*Math.PI-pi*Math.PI, true);
+    //arc (圆心坐标x,圆心坐标y,半径,开始角度,结束角度,画的方向顺时针trueor逆时针false)
+    context.closePath(); //创建从当前点回到起始点的路径
+    context.fillStyle='#ffa9ad'; //属性设置或返回用于填充绘画的颜色、渐变或模式。
+    context.fill(); //填充当前的路径
+}
+drawCircle(0);
+
+// 加载图片缓存
+// var pics = ['http://mat1.gtimg.com/yslp/guanggunjie/css/share-f36a9de4a3.png','http://mat1.gtimg.com/yslp/guanggunjie/css/entitle-f10fc046b6.png','http://mat1.gtimg.com/yslp/guanggunjie/css/hand-2c59a2eaab.png','http://mat1.gtimg.com/yslp/guanggunjie/css/hand_finger-5697478078.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar0-4ba3f708ed.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar1-6e666c9f41.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar2-5d0d345aaf.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar4-7027c27901.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar5-a8e40c45e8.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_avatar6-11ed7b04b1.png','http://mat1.gtimg.com/yslp/guanggunjie/css/home_shake_text-aa64951385.png','http://mat1.gtimg.com/yslp/guanggunjie/css/loading-9e89d30682.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer-b52317bd87.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer0-c539ee6f78.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer1-92801f242b.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer2-4f31d6da3a.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer3-22d41cb206.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer4-10bd2d35b0.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_answer6-bd885f91c6.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar-ebfefec7a2.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar_bg-d0892caaf2.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar_bg_1-847ddaa2c3.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar_bg_2-90e90a78e9.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar0-1e942c39c1.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar1-83b3aa332b.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar2-7132294a00.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar3-e321ec836b.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar4-b3d0413186.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_avatar6-cff2ea8165.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_btn-8ad12b43c0.png','http://mat1.gtimg.com/yslp/guanggunjie/css/result_title-62d28eb73c.png','http://mat1.gtimg.com/yslp/guanggunjie/css/shake_tips-8a9b58ae51.png','http://mat1.gtimg.com/yslp/guanggunjie/css/share-ed4b816471.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share-f36a9de4a3.png','http://mat1.gtimg.com/yslp/guanggunjie/css/subtitle-85e25c70f3.png','http://mat1.gtimg.com/yslp/guanggunjie/css/title-33f49f72e7.png','http://mat1.gtimg.com/yslp/guanggunjie/css/yue-0321419d01.png','http://mat1.gtimg.com/yslp/guanggunjie/css/share0-c7f3af2a70.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share1-6e2318cb3f.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share2-4adf50f0a7.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share3-43f470bb09.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share4-8e2b600eb6.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share5-16eb2956b7.jpg','http://mat1.gtimg.com/yslp/guanggunjie/css/share6-16447787c7.jpg']
+// var pics = ['img/entitle-f10fc046b6.png','img/hand-2c59a2eaab.png','img/hand_finger-5697478078.png','img/home_avatar0-4ba3f708ed.png','img/home_avatar1-6e666c9f41.png','img/home_avatar2-5d0d345aaf.png','img/home_avatar3-17bb90a561.png','img/home_avatar4-7027c27901.png','img/home_avatar5-a8e40c45e8.png','img/home_avatar6-11ed7b04b1.png','img/home_shake_text-aa64951385.png','img/loading-9e89d30682.png','img/result_answer-b52317bd87.png','img/result_answer0-c539ee6f78.png','img/result_answer1-92801f242b.png','img/result_answer2-4f31d6da3a.png','img/result_answer3-22d41cb206.png','img/result_answer4-10bd2d35b0.png','img/result_answer6-bd885f91c6.png','img/result_avatar-ebfefec7a2.png','img/result_avatar_bg-d0892caaf2.png','img/result_avatar_bg_1-847ddaa2c3.png','img/result_avatar_bg_2-90e90a78e9.png','img/result_avatar0-1e942c39c1.png','img/result_avatar1-83b3aa332b.png','img/result_avatar2-7132294a00.png','img/result_avatar3-e321ec836b.png','img/result_avatar4-b3d0413186.png','img/result_avatar6-cff2ea8165.png','img/result_btn-8ad12b43c0.png','img/result_text-0a624175ab.png','img/result_text0-fbcc663fb7.png','img/result_text1-ee916b72f3.png','img/result_text2-26fa528e22.png','img/result_text3-fa712f4662.png','img/result_text4-a37e3e4056.png','img/result_text6-dd725fa99d.png','img/result_title-62d28eb73c.png','img/shake_tips-8a9b58ae51.png','img/share-ed4b816471.jpg','img/share-f36a9de4a3.png','img/share0-c7f3af2a70.jpg','img/share1-6e2318cb3f.jpg','img/share2-4adf50f0a7.jpg','img/share3-43f470bb09.jpg','img/share4-8e2b600eb6.jpg','img/share5-16eb2956b7.jpg','img/share6-16447787c7.jpg','img/subtitle-85e25c70f3.png','img/title-33f49f72e7.png','img/yue-0321419d01.png'];
+var pics = ["../public/img/entitle-f10fc046b6.png","../public/img/hand-2c59a2eaab.png","../public/img/hand_finger-5697478078.png","../public/img/home_avatar0-4ba3f708ed.png","../public/img/home_avatar1-6e666c9f41.png","../public/img/home_avatar2-5d0d345aaf.png","../public/img/home_avatar3-17bb90a561.png","../public/img/home_avatar4-7027c27901.png","../public/img/home_avatar5-a8e40c45e8.png","../public/img/home_avatar6-11ed7b04b1.png","../public/img/home_shake_text-aa64951385.png","../public/img/loading-9e89d30682.png","../public/img/result_answer-b52317bd87.png","../public/img/result_answer0-c539ee6f78.png","../public/img/result_answer1-92801f242b.png","../public/img/result_answer2-4f31d6da3a.png","../public/img/result_answer3-22d41cb206.png","../public/img/result_answer4-10bd2d35b0.png","../public/img/result_answer6-bd885f91c6.png","../public/img/result_avatar-ebfefec7a2.png","../public/img/result_avatar_bg-d0892caaf2.png","../public/img/result_avatar_bg_1-847ddaa2c3.png","../public/img/result_avatar_bg_2-90e90a78e9.png","../public/img/result_avatar0-1e942c39c1.png","../public/img/result_avatar1-83b3aa332b.png","../public/img/result_avatar2-7132294a00.png","../public/img/result_avatar3-e321ec836b.png","../public/img/result_avatar4-b3d0413186.png","../public/img/result_avatar6-cff2ea8165.png","../public/img/result_btn-8ad12b43c0.png","../public/img/result_text-0a624175ab.png","../public/img/result_text0-fbcc663fb7.png","../public/img/result_text1-ee916b72f3.png","../public/img/result_text2-26fa528e22.png","../public/img/result_text3-fa712f4662.png","../public/img/result_text4-a37e3e4056.png","../public/img/result_text6-dd725fa99d.png","../public/img/result_title-62d28eb73c.png","../public/img/shake_tips-8a9b58ae51.png","../public/img/share-ed4b816471.jpg","../public/img/share-f36a9de4a3.png","../public/img/share0-c7f3af2a70.jpg","../public/img/share1-6e2318cb3f.jpg","../public/img/share2-4adf50f0a7.jpg","../public/img/share3-43f470bb09.jpg","../public/img/share4-8e2b600eb6.jpg","../public/img/share5-16eb2956b7.jpg","../public/img/share6-16447787c7.jpg","../public/img/subtitle-85e25c70f3.png","../public/img/title-33f49f72e7.png","../public/img/yue-0321419d01.png"]
+
+var index = 0;
+var pics_length = pics.length;
+
+for (let i = 0; i < pics_length; i++) {
+    var img = new Image();
+    img.src = pics[i];
+    img.onload = function () {
+        index++;
+        var percent = Math.round(index*100/pics_length);
+        console.log(percent);
+        drawCircle(percent/50);
+        $('.loading-text').text(percent+'%');
+        if (percent == 100) {
+            $('.loading').hide();
+            $('.home').show(donghua())
+        }
+    }
+}
+
+// var i=0;
+// while (i < pics.length) {
+//     var img = new Image();
+//     img.src = pics[i];
+//     img.onload = function () {
+//         // debugger
+
+//         // console.log(index);
+//         index++;
+//         var percent = Math.round(index*100/pics_length);
+//         drawCircle(percent/50);
+//         $('.loading-text').text(percent+'%');
+//         if (percent == 100) {
+//             $('.loading').hide();
+//             $('.home').show(donghua())
+//         }
+//     }
+//     i++;
+// }
+
+var count = 7
+
+
+function donghua() {
+    $('.home .title').velocity('callout.bounce',{
+        complete: function () {
+            $('.subtitle').velocity('callout.flash',{
+                complete: function () {
+                    $('.entitle').velocity('transition.perspectiveDownIn',{
+                        complete:function () {
+                            $('.hand-warp').show();
+                            $('.home-shake-text').show();
+                            window.addEventListener('shake',function () {
+                                $('.home').hide();
+                                //随机出现结果
+                                var random = Math.floor(Math.random()*count);
+                                var $t = $('.result .item:not(".noshow")').eq(random)
+                                $t.show().siblings().hide();
+                                //加noshow防止重复
+                                $t.addClass('noshow')
+                                count--;
+                                //循环完一遍以后,重新循环
+                                if (count == 0) {
+                                    count = 7;
+                                    $('.result .item').removeClass('noshow')
+                                }
+                                $('.result').show(function () {
+                                    $('.avater-wrap').velocity({'rotateY':'3600deg'},{'duration':3000,
+                                        complete:function () {
+                                            $('.wenhao').velocity('transition.expandOut',{
+                                                complete:function(){
+                                                    $('.avater').velocity('transition.expandIn');
+                                                    $('.answer').velocity('transition.bounceIn');
+                                                }
+                                            })
+                                        }
+                                    })
+                                })
+                            })
+                        }
+                    });
+                },
+                display: 'block'
+            });
+        },
+        display: 'block'
+    });
+}
+
+
+$('.btns').on('click',function(){
+    $('.share').show();
+});
+$('body').on('click','.share',function(){
+    $('.share').hide();
+});
+
+
+var Shake = {
+    main:function () {
+        // console.log(1112);
+    },
+    handleEvent:function (e) {
+        var shakeevent = new Event('shake', {'bubbles':true, 'cancelable':false});
+        dispatchEvent(shakeevent);
+        this.main();
+        // console.log(e);
+    }
+}
+addEventListener('click', Shake, false);
+// addEventListener('shake', function () {
+//     // console.log('22222');
+//     $('.home').hide();
+//     $('.result').show()
+// });
+
+// 现场演示new函数变对象
+// function fruit() {
+// }
+// var apple = new fruit();
+// apple.color = 'red';
+// console.log(apple)
+</script>
+
+</body>
+</html>
