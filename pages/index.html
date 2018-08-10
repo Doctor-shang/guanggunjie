@@ -188,6 +188,8 @@ function donghua() {
                         complete:function () {
                             $('.hand-warp').show();
                             $('.home-shake-text').show();
+                            var shake = new Shake();
+                            shake.start();
                             window.addEventListener('shake',function () {
                                 $('.home').hide();
                                 //随机出现结果
