@@ -234,18 +234,18 @@ $('body').on('click','.share',function(){
 });
 
 
-var Shake = {
-    main:function () {
-        // console.log(1112);
-    },
-    handleEvent:function (e) {
-        var shakeevent = new Event('shake', {'bubbles':true, 'cancelable':false});
-        dispatchEvent(shakeevent);
-        this.main();
-        // console.log(e);
-    }
-}
-addEventListener('click', Shake, false);
+// var Shake = {
+//     main:function () {
+//         // console.log(1112);
+//     },
+//     handleEvent:function (e) {
+//         var shakeevent = new Event('shake', {'bubbles':true, 'cancelable':false});
+//         dispatchEvent(shakeevent);
+//         this.main();
+//         // console.log(e);
+//     }
+// }
+// addEventListener('click', Shake, false);
 // addEventListener('shake', function () {
 //     // console.log('22222');
 //     $('.home').hide();
