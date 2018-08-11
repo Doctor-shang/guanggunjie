@@ -69,12 +69,12 @@ table { border-spacing:0; border-collapse:collapse;}
     100%{transform: rotateZ(0deg)}
 }
 .home .hand-warp{
-    width: 450px;
+    width: 400px;
     height: 420px;
     background: url(../img/hand.png) no-repeat 0 0/contain;
     position: absolute;
     left: 0px;
-    bottom: -10px;
+    bottom: 0px;
     animation: shake-warp 1.5s infinite;
     transform-origin: 40% 90%
 }

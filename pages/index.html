@@ -146,12 +146,12 @@ for (let i = 0; i < pics_length; i++) {
     img.onload = function () {
         index++;
         var percent = Math.round(index*100/pics_length);
-        console.log(percent);
+        // console.log(percent);
         drawCircle(percent/50);
         $('.loading-text').text(percent+'%');
         if (percent == 100) {
             $('.loading').hide();
-            $('.home').show(donghua())
+            $('.home').show(homestart())
         }
     }
 }
@@ -176,55 +176,118 @@ for (let i = 0; i < pics_length; i++) {
 //     i++;
 // }
 
-var count = 7
+var count = 7;
+var du = 0;
 
 
-function donghua() {
-    $('.home .title').velocity('callout.bounce',{
-        complete: function () {
-            $('.subtitle').velocity('callout.flash',{
-                complete: function () {
+// function donghua() {
+//     $('.home .title').velocity('callout.bounce',{
+//         complete: function () {
+//             $('.subtitle').velocity('callout.flash',{
+//                 complete: function () {
+//                     $('.entitle').velocity('transition.perspectiveDownIn',{
+//                         complete:function () {
+//                             $('.hand-warp').show();
+//                             $('.home-shake-text').show();
+//                             var shake = new Shake();
+//                             shake.start();
+//                             window.addEventListener('shake',function () {
+//                                 $('.home').hide();
+//                                 //随机出现结果
+//                                 var random = Math.floor(Math.random()*count);
+//                                 var $t = $('.result .item:not(".noshow")').eq(random)
+//                                 $t.show().siblings().hide();
+//                                 //加noshow防止重复
+//                                 $t.addClass('noshow')
+//                                 count--;
+//                                 //循环完一遍以后,重新循环
+//                                 if (count == 0) {
+//                                     count = 7;
+//                                     $('.result .item').removeClass('noshow')
+//                                 }
+//                                 $('.result').show(function () {
+//                                     $('.avater-wrap').velocity({'rotateY':'3600deg'},{'duration':3000,
+//                                         complete:function () {
+//                                             $('.wenhao').velocity('transition.expandOut',{
+//                                                 complete:function(){
+//                                                     $('.avater').velocity('transition.expandIn');
+//                                                     $('.answer').velocity('transition.bounceIn');
+//                                                 }
+//                                             })
+//                                         }
+//                                     })
+//                                 })
+//                             })
+//                         }
+//                     });
+//                 },
+//                 display: 'block'
+//             });
+//         },
+//         display: 'block'
+//     });
+// }
+
+function homestart() {
+    $('.home .title').show().velocity('callout.bounce',{
+        complete:function (){
+            $('.subtitle').show().velocity('callout.flash',{
+                complete:function (){
                     $('.entitle').velocity('transition.perspectiveDownIn',{
-                        complete:function () {
+                        complete:function(){
                             $('.hand-warp').show();
                             $('.home-shake-text').show();
-                            var shake = new Shake();
-                            shake.start();
-                            window.addEventListener('shake',function () {
-                                $('.home').hide();
-                                //随机出现结果
-                                var random = Math.floor(Math.random()*count);
-                                var $t = $('.result .item:not(".noshow")').eq(random)
-                                $t.show().siblings().hide();
-                                //加noshow防止重复
-                                $t.addClass('noshow')
-                                count--;
-                                //循环完一遍以后,重新循环
-                                if (count == 0) {
-                                    count = 7;
-                                    $('.result .item').removeClass('noshow')
-                                }
-                                $('.result').show(function () {
-                                    $('.avater-wrap').velocity({'rotateY':'3600deg'},{'duration':3000,
-                                        complete:function () {
-                                            $('.wenhao').velocity('transition.expandOut',{
-                                                complete:function(){
-                                                    $('.avater').velocity('transition.expandIn');
-                                                    $('.answer').velocity('transition.bounceIn');
-                                                }
-                                            })
-                                        }
-                                    })
-                                })
-                            })
+                            yao()
                         }
-                    });
-                },
-                display: 'block'
-            });
-        },
-        display: 'block'
-    });
+                    })
+                }
+            })
+        }
+    })
+}
+
+function yao() {
+    // var shake = new Shake();
+    // shake.start();
+    addEventListener('shake',function () {
+        // alert('yao');
+        $('.home').hide();
+        resulestart();
+    })
+}
+
+function resulestart() {
+    $('.avater').hide()
+    $('.answer').hide()
+    $('.wenhao').velocity('transition.expandIn')
+    //获取随机数
+    var random = Math.floor(Math.random()*count);
+    // 获取随机出现的结果
+    var $t = $('.result .item:not(".noshow")').eq(random);
+    //结果出现,其他隐藏
+    $t.show().siblings().hide();
+    //加noshow防止重复
+    $t.addClass('noshow')
+    // 计数减一
+    count--;
+    //循环完一遍以后,重新循环
+    if (count == 0) {
+        count = 7;
+        $('.result .item').removeClass('noshow')
+    }
+    $('.result').show(function () {
+        du+=3600;
+        $('.avater-wrap').velocity({'rotateY': du + 'deg'},{'duration':3000,
+            complete:function () {
+                $('.wenhao').velocity('transition.expandOut',{
+                    complete:function(){
+                        $('.avater').velocity('transition.expandIn');
+                        $('.answer').velocity('transition.bounceIn');
+                    }
+                })
+            }
+        })
+    })
 }
 
 
@@ -237,29 +300,24 @@ $('body').on('click','.share',function(){
 
 
 // var Shake = {
-//     main:function () {
-//         // console.log(1112);
-//     },
+//     // main:function () {
+//     //     // console.log(1112);
+//     // },
 //     handleEvent:function (e) {
 //         var shakeevent = new Event('shake', {'bubbles':true, 'cancelable':false});
 //         dispatchEvent(shakeevent);
-//         this.main();
+//         // this.main();
 //         // console.log(e);
 //     }
 // }
 // addEventListener('click', Shake, false);
+
 // addEventListener('shake', function () {
 //     // console.log('22222');
 //     $('.home').hide();
 //     $('.result').show()
 // });
 
-// 现场演示new函数变对象
-// function fruit() {
-// }
-// var apple = new fruit();
-// apple.color = 'red';
-// console.log(apple)
 </script>
 
 </body>
