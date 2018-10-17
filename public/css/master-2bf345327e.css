@@ -18,8 +18,20 @@ table { border-spacing:0; border-collapse:collapse;}
 .clearfix:before, .clearfix:after { display: table; line-height: 0; content: "";}
 .clearfix:after { clear: both;}
 /* loading开始 */
-.loading{position: absolute;top: 0;left: 0;width: 100%;height: 100%}
-.loading-wrap{width: 100%; height:200px;position: absolute;top: 30%;left: 50%;margin-left:-50px;}
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%
+}
+.loading-wrap{
+    width:100px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left:-50px;
+}
 .pic{
     width: 20vw;
     height: 20vw;
@@ -35,7 +47,7 @@ table { border-spacing:0; border-collapse:collapse;}
 .home{
     position: absolute;
     top: 0; left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%
 }
 .home .title{
